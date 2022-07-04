@@ -1,0 +1,51 @@
+  ; ** test source code for the JLS 6502 Assembler **
+  ; Note 1: this is a nonsense program - it is meant to 
+  ; convey proper assembler syntax only.
+
+  ; Note 2: this assembler does NOT require fields to start 
+  ; in certain (fixed) columns. Also case is irrelevant. 
+
+  ; Note 3: all equate (.equ) statements MUST precede
+  ; the program code as shown in the example below.
+  
+  ; Note 4: this assembler does NOT support the CMOS
+  ; version of the 6502 only the MOS (original) version.
+  
+  ; Note 5: this assembler has NO macro facility.  
+  
+  ; Note 6: a .end statement MUST be the last
+  ; statemant in the assembler source code.
+  
+  ; Note 7: '.org', '.db', '.ds', '.equ', '.end' are the
+  ; only assembler directives. '.ds' is define (reserve) storage -
+  ; the rest are self-explanatory.  
+pc = 512                            .org $0200
+XXXX = 10                   xxxx    .equ $10
+YYYY = 4000                 yyyy    .equ $4000
+ZZZZ = FF                   zzzz    .equ 255
+0200 : A9 FF                begin   LDA #$FF    ; load accum 
+0202 : A9 FF                        LDA #255
+0204 : A9 41                        LDA #'A'
+0206 : A9 03                        LDA #%00000011
+0208 : BD 3E 02                     LDA byte2,X
+020B : D0 F3                        BNE begin
+020D : F0 17                        BEQ debug
+020F : 8D 00 15                     STA $1500   ; save it
+0212 : AD 00 40                     LDA yyyy
+0215 : 4C 00 02                     JMP begin
+0218 : F5 44                        SBC $44,X
+021A : 6E AA AA                     ROR $AAAA
+021D : 99 00 44                     STA $4400,Y
+0220 : 91 10              clrlp     sta (xxxx),y
+0222 : C8                           iny
+0223 : CA                           dex
+0224 : D0 FA                        bne clrlp
+0226 : E8                   debug   inx
+0227 : A5 11                        lda xxxx+1
+0229 : AD 0A 40                     lda yyyy+10
+022C : 6C 97 55                     JMP ($5597)
+022F : 0F440FEE50           byte1   .db $0f,$44,15,$ee,80
+0234 : 414243440F           byte2   .db 'ABCD',%00001111
+0239 : Reserved 5 Bytes     area1   .ds 5
+023E : 55                   byte2   .db $55
+023F                                .end
