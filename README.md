@@ -3,7 +3,13 @@
 
 This program requires the Python3 interpreter to be installed.
 
-Usage is as follows:   python3 asm6502.py <inputsourcefile>
+Installation instructions:
+- Download asm6502.py AND asm6502Mod.py and save both to a directory of your choosing
+- Save your assembler source file (.asm extension) to the same directory
+- Navigate to that directory
+- Then invoke python3 against asm6502.py as is shown below
+
+Usage is as follows:   python3 asm6502.py inputsourcefile
 
    Example:  python3 asm6502.py test1.asm
    
