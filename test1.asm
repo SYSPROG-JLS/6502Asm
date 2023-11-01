@@ -13,10 +13,13 @@
   
   ; Note 5: this assembler has NO macro facility.  
   
-  ; Note 6: a .end statement MUST be the last
+  ; Note 6: a .org directive MUST be the first
   ; statemant in the assembler source code.
-  
-  ; Note 7: '.org', '.db', '.ds', '.equ', '.end' are the
+
+  ; Note 7: a .end directive MUST be the last
+  ; statemant in the assembler source code.
+
+  ; Note 8: '.org', '.db', '.ds', '.equ', '.end' are the
   ; only assembler directives. '.ds' is define (reserve) storage -
   ; the rest are self-explanatory.  
           .org $0200
