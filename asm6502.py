@@ -143,7 +143,10 @@ for line in source_code:
                             f, t = z.span()
                             label = label[0:f]
                         if label in label_dict:
-                            oper = '$' + label_dict[label]
+                            if label_dict[label].startswith('$'):
+                                oper = label_dict[label]
+                            else:
+                                oper = '$' + label_dict[label]
                         else:
                             oper = '$FFFF'
                             label_dict[label] = oper
