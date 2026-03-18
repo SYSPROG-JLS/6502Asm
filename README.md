@@ -28,15 +28,18 @@ Other noteable items:
   
   - Note 3: this assembler does NOT support the CMOS
     version of the 6502 only the MOS (original) version.
+    
+  - Note 4: this assembler does NOT support coding
+    an 'A' in the operand field for accumulator address mode mnemonics.
+   
+  - Note 5: this assembler has NO macro facility.  
   
-  - Note 4: this assembler has NO macro facility.  
-  
-  - Note 5: a .org directive MUST be the first
+  - Note 6: a .org directive MUST be the first
     statemant in the assembler source code.
     
-  - Note 6: a .end directive MUST be the last
+  - Note 7: a .end directive MUST be the last
     statemant in the assembler source code.
     
-  - Note 7: '.org', '.db', '.ds', '.equ', '.end' are the
+  - Note 8: '.org', '.db', '.ds', '.equ', '.end' are the
     only assembler directives. '.ds' is define (reserve) storage -
     the rest are self-explanatory.  
