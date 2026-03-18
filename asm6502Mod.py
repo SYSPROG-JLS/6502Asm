@@ -1,8 +1,8 @@
 # 
-# asm6502Mod.py V1.R1.M0
+# asm6502Mod.py V1.R1.M1
 #
 # This file is part of the asm6502 distribution.
-# Copyright (c) 2022 James Salvino.
+# Copyright (c) 2026 James Salvino.
 # 
 # This program is free software: you can redistribute it and/or modify  
 # it under the terms of the GNU General Public License as published by  
@@ -166,8 +166,8 @@ def determine_mode(mnemonic, operand):
     mode = 'Invalid'
     if operand == '':
         mode = 'Implied'
-    elif operand == 'A':
-        mode = 'Accumulator'
+        if mnemonic in ['ASL', 'LSR', 'ROL', 'ROR']:
+            mode = 'Accumulator'
     else:
         for p in address_mode_patterns.keys():
             z = re.fullmatch(p, operand)
