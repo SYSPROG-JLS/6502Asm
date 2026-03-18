@@ -30,7 +30,7 @@ Other noteable items:
     version of the 6502 only the MOS (original) version.
     
   - Note 4: this assembler does NOT support coding
-    an 'A' in the operand field for accumulator address mode mnemonics.
+    an 'A' in the operand field for accumulator address mode mnemonics ('ASL', 'LSR', 'ROL', 'ROR').
    
   - Note 5: this assembler has NO macro facility.  
   
