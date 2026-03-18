@@ -1,8 +1,8 @@
 # 
-# asm6502.py V1.R1.M0
+# asm6502.py V1.R1.M1
 #
 # This file is part of the asm6502 distribution.
-# Copyright (c) 2022 James Salvino.
+# Copyright (c) 2026 James Salvino.
 # 
 # This program is free software: you can redistribute it and/or modify  
 # it under the terms of the GNU General Public License as published by  
@@ -62,7 +62,7 @@ finame = sys.argv[1]
 
 print(45*'*')
 print('*  JLS 6502 Assembler', 21*' ', '*')
-print('*  Copyright (c) 2022 James Salvino.', 6*' ', '*')
+print('*  Copyright (c) 2026 James Salvino.', 6*' ', '*')
 print(45*'*')
 
 # pass 1
@@ -178,6 +178,11 @@ for line in source_code:
         pc = pc + nb    
 
 #print(label_dict)
+# make sure all labels are resolved to a valid address
+for label, address in label_dict.items():
+    if address == '$FFFF':
+        pass1_error_count += 1
+        print('Unresolved address for label:', label)
 
 if pass1_error_count > 0:
     print('Error(s) Encountered')
